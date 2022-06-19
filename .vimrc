@@ -2,15 +2,20 @@
 " vim-plug (junegunn/vim-plug)
 " fzf.vim (junegunn/fzf.vim)
 " lightline (itchyny/lightline.vim)
+" gruvbox (gruvbox-community/gruvbox)
 
 call plug#begin()
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'itchyny/lightline.vim'
+Plug 'gruvbox-community/gruvbox'
+Plug 'joshdick/onedark.vim'
+Plug 'srcery-colors/srcery-vim'
+Plug 'vyperlang/vim-vyper'
 call plug#end()
 
-" enable syntax highlighting for .tpp files
-au BufRead,BufNewFile *,tpp set filetype=cpp
+" apply c++ syntax to .tpp files
+au BufRead,BufNewFile *.tpp setlocal filetype=cpp
 
 " prevent some weird keyboard bugs
 set nocompatible
@@ -39,8 +44,10 @@ set noshowmode
 " display vertical rulers
 set cc=80,100
 
-" disable text wrapping
-set nowrap
+" enable text soft-wrap
+set wrap
+set linebreak
+set nolist
 
 " display cursorline
 set cursorline
@@ -70,7 +77,9 @@ set background=dark
 syntax on
 filetype on
 
-" set termguicolors
+" colorscheme settings
+set termguicolors
+colorscheme gruvbox
 
 nnoremap <F2> :Files<CR>
 nnoremap <F3> <C-w>v
