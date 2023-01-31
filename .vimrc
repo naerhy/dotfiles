@@ -1,21 +1,15 @@
-" INSTALLED PLUGINS:
-" vim-plug (junegunn/vim-plug)
-" fzf.vim (junegunn/fzf.vim)
-" lightline (itchyny/lightline.vim)
-" gruvbox (gruvbox-community/gruvbox)
-
 call plug#begin()
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'gruvbox-community/gruvbox'
-Plug 'joshdick/onedark.vim'
-Plug 'srcery-colors/srcery-vim'
-Plug 'vyperlang/vim-vyper'
+Plug 'arcticicestudio/nord-vim'
+Plug 'dracula/vim', { 'as': 'dracula' }
 call plug#end()
 
 " apply c++ syntax to .tpp files
 au BufRead,BufNewFile *.tpp setlocal filetype=cpp
+au BufRead,BufNewFile *.psc set filetype=psc
 
 " prevent some weird keyboard bugs
 set nocompatible
@@ -78,9 +72,16 @@ syntax on
 filetype on
 
 " colorscheme settings
-set termguicolors
-colorscheme gruvbox
+if has('termguicolors')
+	set termguicolors
+endif
+
+colorscheme dracula
+" colorscheme gruvbox
+" colorscheme nord
 
 nnoremap <F2> :Files<CR>
-nnoremap <F3> <C-w>v
-nnoremap <F4> <C-w>w
+nnoremap <F3> <C-w>w
+nnoremap <F4> :term<CR>
+nnoremap <F7> :vsplit<CR>
+nnoremap <F8> :split<CR>
