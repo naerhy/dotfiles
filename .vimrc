@@ -1,11 +1,14 @@
+" require vim 0.9+
+
+" vim plugins (github.com/junegunn/vim-plug)
 call plug#begin()
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'itchyny/lightline.vim'
-Plug 'gruvbox-community/gruvbox'
-Plug 'arcticicestudio/nord-vim'
-Plug 'dracula/vim', { 'as': 'dracula' }
 call plug#end()
+
+" fzf layout config
+let g:fzf_layout = {'window': {'width': 0.8, 'height': 0.8}}
 
 " apply c++ syntax to .tpp files
 au BufRead,BufNewFile *.tpp setlocal filetype=cpp
@@ -32,7 +35,7 @@ set number
 " toggle status line visibility
 set laststatus=2
 
-" disable -- INSERT -- messages 
+" disable -- INSERT -- messages at bottom
 set noshowmode
 
 " display vertical rulers
@@ -71,17 +74,14 @@ set background=dark
 syntax on
 filetype on
 
-" colorscheme settings
-if has('termguicolors')
-	set termguicolors
-endif
+" colorscheme
+colorscheme habamax
 
-colorscheme dracula
-" colorscheme gruvbox
-" colorscheme nord
-
-nnoremap <F2> :Files<CR>
-nnoremap <F3> <C-w>w
-nnoremap <F4> :term<CR>
-nnoremap <F7> :vsplit<CR>
-nnoremap <F8> :split<CR>
+" custom key mappings
+nmap <F1> :Files<CR>
+nmap <F2> :Buffers<CR>
+nmap <F3> <C-w>w
+tmap <F3> <C-w>w
+nmap <F4> :terminal<CR>
+nmap <F7> :vsplit<CR>
+nmap <F8> :split<CR>
