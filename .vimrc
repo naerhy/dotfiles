@@ -38,6 +38,9 @@ set laststatus=2
 " disable -- INSERT -- messages at bottom
 set noshowmode
 
+" ignore case when searching
+set ignorecase
+
 " display vertical rulers
 set cc=80,100
 
