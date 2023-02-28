@@ -44,11 +44,6 @@ set ignorecase
 " display vertical rulers
 set cc=80,100
 
-" enable text soft-wrap
-set wrap
-set linebreak
-set nolist
-
 " display cursorline
 set cursorline
 
@@ -63,6 +58,9 @@ set tabstop=4
 
 " width for autoindents
 set shiftwidth=4
+
+" disable line wrapping
+set nowrap
 
 " automatically indent files based on file type
 filetype plugin indent on
