@@ -75,12 +75,8 @@ set background=dark
 syntax on
 filetype on
 
-" colorscheme
-colorscheme habamax
-
 " custom key mappings
-nmap <F1> :Files<CR>
-nmap <F2> :Buffers<CR>
+nmap <F2> :Files<CR>
 nmap <F3> <C-w>w
 tmap <F3> <C-w>w
 nmap <F4> :terminal<CR>
