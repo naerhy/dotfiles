@@ -1,4 +1,4 @@
-" require vim 0.9+
+" vim 0.8.2+
 
 " vim plugins (github.com/junegunn/vim-plug)
 call plug#begin()
@@ -53,11 +53,14 @@ set encoding=UTF-8
 " enable mouse
 set mouse=a
 
-" number of columns when using tab
+" how many columns a tab counts for
 set tabstop=4
-
-" width for autoindents
+" control how many columns the cursor moves when pressing tab in insert mode
+set softtabstop=4
+" specify by how many columns text is indented with automatic indentation
 set shiftwidth=4
+" pressing tab doesn't insert space characters
+set noexpandtab
 
 " disable line wrapping
 set nowrap
@@ -65,7 +68,7 @@ set nowrap
 " automatically indent files based on file type
 filetype plugin indent on
 
-" set indent mode = copy indent from previous line
+" new lines inherit the indentation of previous lines
 set autoindent
 
 " Vim will try to use colors that look good on dark background
