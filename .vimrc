@@ -2,22 +2,36 @@
 
 " vim plugins (github.com/junegunn/vim-plug)
 call plug#begin()
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'itchyny/lightline.vim'
+Plug 'vim/colorschemes'
 call plug#end()
 
-" fzf layout config
+" vim-lsp settings
+let g:lsp_fold_enabled = 0
+let g:lsp_document_highlight_enabled = 0
+let g:lsp_diagnostics_echo_cursor = 1
+let g:lsp_diagnostics_echo_delay = 200
+let g:lsp_diagnostics_highlights_delay = 200
+let g:lsp_diagnostics_signs_delay = 200
+let g:lsp_diagnostics_virtual_text_enabled = 0
+let g:lsp_document_code_action_signs_enabled = 0
+
+" fzf.vim settings
 let g:fzf_layout = {'window': {'width': 0.8, 'height': 0.8}}
 
 " apply c++ syntax to .tpp files
 au BufRead,BufNewFile *.tpp setlocal filetype=cpp
 au BufRead,BufNewFile *.psc set filetype=psc
 
-" prevent some weird keyboard bugs
+" use vim settings rather than vi settings
+" kinda redundant as it is already off if a .vimrc exists
 set nocompatible
 
-" enable backspace key to delete
+" enable sane backspace behavior
 set backspace=indent,eol,start
 
 " disable creating swap files
@@ -31,6 +45,12 @@ set ttimeout ttimeoutlen=50
 
 " display lines number
 set number
+
+" keep at least 5 lines above/below cursor
+set scrolloff=5
+
+" display sign column
+set signcolumn=yes
 
 " toggle status line visibility
 set laststatus=2
@@ -62,11 +82,18 @@ set shiftwidth=4
 " pressing tab doesn't insert space characters
 set noexpandtab
 
+" when splitting, open the new window below/right of the current one
+set splitbelow
+set splitright
+
 " disable line wrapping
 set nowrap
 
-" automatically indent files based on file type
-filetype plugin indent on
+" enable filetypes configuration
+" shorthand: filetype plugin indent on
+filetype on
+filetype plugin on
+filetype indent on
 
 " new lines inherit the indentation of previous lines
 set autoindent
@@ -76,12 +103,23 @@ set background=dark
 
 " enable syntax highlighting
 syntax on
-filetype on
+
+" set custom colorscheme
+colorscheme quiet
+
+" set leader key
+let mapleader = ","
 
 " custom key mappings
-nmap <F2> :Files<CR>
-nmap <F3> <C-w>w
-tmap <F3> <C-w>w
-nmap <F4> :terminal<CR>
-nmap <F7> :vsplit<CR>
-nmap <F8> :split<CR>
+" F1 = :help
+nmap <F1> :e.<CR>
+nmap <F3> :LspDocumentDiagnostics<CR>
+nmap <F4> :LspDefinition<CR>
+nmap <Leader>h :LspHover<CR>
+nmap <Leader>f :Files<CR>
+nmap <Leader>b :Buffers<CR>
+nmap <F2> <C-w>w
+tmap <F2> <C-w>w
+nmap <F7> <C-w>v
+nmap <F8> <C-w>s
+nmap <Leader>t :terminal<CR>
