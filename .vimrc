@@ -1,18 +1,15 @@
-" vim 0.8.2+
+" vim 9.0
 
 " vim plugins (github.com/junegunn/vim-plug)
 call plug#begin()
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'itchyny/lightline.vim'
-Plug 'vim/colorschemes'
 call plug#end()
 
-" fzf.vim settings
-let g:fzf_layout = {'window': {'width': 0.8, 'height': 0.8}}
-
-" apply c++ syntax to .tpp files
-au BufRead,BufNewFile *.tpp setlocal filetype=cpp
+let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
+let g:fzf_vim = {}
+let g:fzf_vim.preview_window = []
 
 " use vim settings rather than vi settings
 " kinda redundant as it is already off if a .vimrc exists
@@ -21,7 +18,7 @@ set nocompatible
 " enable sane backspace behavior
 set backspace=indent,eol,start
 
-" disable creating swap files
+" disable swap files creation
 set noswapfile
 
 " set update time
@@ -30,20 +27,25 @@ set updatetime=1000
 " faster update for lightline status plugin
 set ttimeout ttimeoutlen=50
 
-" display lines number
+" show lines number
 set number
 
 " keep at least 5 lines above/below cursor
 set scrolloff=5
 
-" toggle status line visibility
+" always show status line
 set laststatus=2
 
 " disable -- INSERT -- messages at bottom
 set noshowmode
 
+" highlight search results
+set hlsearch
+
 " ignore case when searching
 set ignorecase
+" ignore case only if search is all lowercase
+set smartcase
 
 " display vertical rulers
 set cc=80,100
@@ -88,19 +90,16 @@ set background=dark
 " enable syntax highlighting
 syntax on
 
-" set custom colorscheme
-colorscheme quiet
+" set colorscheme
+colorscheme habamax
 
 " set leader key
-let mapleader = ","
+let mapleader = ','
 
 " custom key mappings
-" F1 = :help
-nmap <F1> :e.<CR>
+nmap <tab> <C-w>w
 nmap <Leader>f :Files<CR>
 nmap <Leader>b :Buffers<CR>
-nmap <F2> <C-w>w
-tmap <F2> <C-w>w
 nmap <F7> <C-w>v
 nmap <F8> <C-w>s
-nmap <Leader>t :terminal<CR>
+nmap \ :nohl<CR>
