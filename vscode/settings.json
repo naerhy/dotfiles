@@ -1,20 +1,18 @@
 {
 	"editor.minimap.enabled": false,
-    "editor.insertSpaces": false,
-    "editor.rulers": [
-        80, 100
-    ],
-    "files.insertFinalNewline": true,
-    "files.trimFinalNewlines": true,
-    "editor.fontFamily": "JetBrains Mono NL",
-    "workbench.editor.wrapTabs": true,
-    "explorer.compactFolders": false,
-    "workbench.tree.renderIndentGuides": "always",
-    "workbench.tree.indent": 16,
-    "breadcrumbs.enabled": false,
-    "editor.bracketPairColorization.enabled": false,
-    "extensions.ignoreRecommendations": true,
-	"editor.detectIndentation": false,
+	"editor.rulers": [
+			80, 100, 120
+	],
+	"files.insertFinalNewline": true,
+	"files.trimFinalNewlines": true,
+	"editor.fontFamily": "JetBrains Mono NL",
+	"workbench.editor.wrapTabs": true,
+	"explorer.compactFolders": false,
+	"workbench.tree.renderIndentGuides": "always",
+	"workbench.tree.indent": 16,
+	"breadcrumbs.enabled": false,
+	"editor.bracketPairColorization.enabled": false,
+	"extensions.ignoreRecommendations": true,
 	"solidity.telemetry": false,
 	"editor.stickyScroll.enabled": false,
 	"workbench.tree.enableStickyScroll": false,
@@ -37,5 +35,16 @@
 	"vim.handleKeys": {
 		"<C-b>": false
 	},
-	"editor.cursorSurroundingLines": 5
+	"editor.cursorSurroundingLines": 5,
+	"editor.autoClosingBrackets": "never",
+	"editor.autoClosingQuotes": "never",
+	"html.autoCreateQuotes": false,
+	"workbench.colorTheme": "Default Dark+",
+	"editor.acceptSuggestionOnCommitCharacter": false,
+	"html.autoClosingTags": false,
+	"editor.tabSize": 2,
+	"redhat.telemetry.enabled": false,
+	"editor.inlayHints.enabled": "off",
+	"kotlin.languageServer.enabled": false,
+	"kotlin.debugAdapter.enabled": false
 }
